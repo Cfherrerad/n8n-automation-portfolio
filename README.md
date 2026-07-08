@@ -4,7 +4,7 @@ Hi, I'm Christian Felipe Herrera Díaz — an AI Automation Engineer specialized
 
 This repository contains real automation projects I've built to solve business problems: eliminating manual work, connecting disconnected systems, and using AI to process and act on data automatically.
 
-📄 [Resume / CV](#) · 💼 [Upwork Profile](#) · ✉️ cfherrera.mhd@gmail.com
+📄 [Resume / CV](https://github.com/Cfherrerad/n8n-automation-portfolio/blob/main/Christian_Herrera_CV.pdf) · 💼 [Upwork Profile](https://www.upwork.com/freelancers/~0146d7bef090468017) · ✉️ cfherrera.mhd@gmail.com
 
 ---
 
