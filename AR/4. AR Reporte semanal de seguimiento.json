@@ -1,0 +1,330 @@
+{
+  "name": "4. AR Reporte semanal de seguimiento",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                5
+              ],
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        240,
+        0
+      ],
+      "id": "e17cc1c3-0aa9-470f-a491-c426224bea9e",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714438935",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        448,
+        -160
+      ],
+      "id": "8dace394-1fca-4436-a08c-82939b2dc7f1",
+      "name": "Obtener task starter",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714436794",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "19794b96-0e64-4722-b9c5-2cf6a2e69926",
+      "name": "Obtener task growth",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714438950",
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        448,
+        160
+      ],
+      "id": "0be0f1fa-b233-43c9-9682-7243b1c1c832",
+      "name": "Obtener task premium",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        624,
+        -16
+      ],
+      "id": "f2a15eee-0824-4fd1-86ea-895121553913",
+      "name": "Merge"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        1376,
+        240
+      ],
+      "id": "c3564cbe-93f7-43a5-a39e-e6cf241e4dfe",
+      "placeholder": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9c5432bf-1a8e-4938-8d8c-9a15329e341e",
+              "leftValue": "={{ $json.status.status }}",
+              "rightValue": "complete",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        800,
+        0
+      ],
+      "id": "22d60de4-e510-4a0c-a1c7-4e5f4ec816f7",
+      "name": "Sigue pendiente?"
+    },
+    {
+      "parameters": {
+        "jsCode": "const ahora = Date.now();\n\nreturn items.map(item => {\n\n  const fechaCreacion = Number(item.json.date_created);\n\n  const diasPendiente = Math.floor(\n    (ahora - fechaCreacion) / (1000 * 60 * 60 * 24)\n  );\n\n  return {\n    json: {\n      cliente: item.json.name,\n      plan: item.json.list.name,\n      estado: item.json.status.status,\n      diasPendiente,\n      url: item.json.url\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1024,
+        -16
+      ],
+      "id": "15c0d3e9-cf03-4994-ae5d-faa7cda74fe1",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "let mensaje = `⚠️ Reporte semanal de onboarding pendientes\n\nTotal clientes pendientes: ${items.length}\n\n`;\n\nfor (const item of items) {\n\n  mensaje += `🔹 ${item.json.cliente}\nPlan: ${item.json.plan}\nPendiente hace ${item.json.diasPendiente} días\n${item.json.url}\n\n`;\n}\n\nreturn [{\n  json: {\n    reporte: mensaje\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1232,
+        -16
+      ],
+      "id": "1b8b44db-31c5-48e4-bfba-09afd09f9a7c",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0B9XQL0PAR",
+          "mode": "list",
+          "cachedResultName": "accounting"
+        },
+        "text": "=\n{{ $json.reporte }}\n",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        1440,
+        -16
+      ],
+      "id": "62a19d3e-0301-4beb-a343-57f4f203d762",
+      "name": "Send a message",
+      "webhookId": "91c3394e-9578-46d0-a802-89226dbb9492",
+      "credentials": {
+        "slackApi": {
+          "id": "PeZlQ2PeTrl2frP4",
+          "name": "Slack account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Obtener task starter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Obtener task growth",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Obtener task premium",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener task starter": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener task growth": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Obtener task premium": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Sigue pendiente?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        []
+      ]
+    },
+    "Sigue pendiente?": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "0686fe15-aa05-4434-8304-a9060a3907e2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ca88ca86bc4a51c7fc34595854945c19b63cfab8fa478767692336200a39e016"
+  },
+  "id": "KQKck8nJ8HaOpKgd",
+  "tags": []
+}

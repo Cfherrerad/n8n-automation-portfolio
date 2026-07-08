@@ -1,0 +1,428 @@
+{
+  "name": "3. AR Cierre del onboarding",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "get",
+        "id": "={{ $json.task_id }}"
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        448,
+        -16
+      ],
+      "id": "23d4c1a2-d3ac-4d80-9239-4e0a1ccb96bc",
+      "name": "Get a task",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "840dc37d-f81f-4901-9b96-e3f769408e69",
+              "leftValue": "={{$json.parent}}",
+              "rightValue": "=",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        672,
+        -16
+      ],
+      "id": "dd8e2378-f0e0-49cc-8665-68958cbace76",
+      "name": "Es tarea principal?"
+    },
+    {
+      "parameters": {
+        "team": "90171308986",
+        "events": [
+          "taskStatusUpdated"
+        ],
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.clickUpTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c8b4a4bf-702f-491e-974a-93174ef110f0",
+      "name": "ClickUp Task status Trigger",
+      "webhookId": "8dddc91d-d39e-4db5-80e5-33fafe122a4a",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "09f2c882-daca-44cd-a676-3f7b43ccb07d",
+              "leftValue": "={{ $json.history_items[0].after.status }}",
+              "rightValue": "complete",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "f18f1cbb-63b1-4b7c-b608-6effef84539b",
+      "name": "Estado complete?"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbwaWO7SQmTOO81",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblbwaWO7SQmTOO81"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Id_task_principal_clickup": "={{ $json.id }}",
+            "estado": "Activo"
+          },
+          "matchingColumns": [
+            "Id_task_principal_clickup"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id Cliente",
+              "displayName": "Id Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No_cliente_ventas",
+              "displayName": "No_cliente_ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "nombres",
+              "displayName": "nombres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "apellidos",
+              "displayName": "apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "No_contacto",
+              "displayName": "No_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "account-manager",
+              "displayName": "account-manager",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "fecha_pago",
+              "displayName": "fecha_pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "sitio",
+              "displayName": "sitio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "form_recibido",
+              "displayName": "form_recibido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Id_task_principal_clickup",
+              "displayName": "Id_task_principal_clickup",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        912,
+        -48
+      ],
+      "id": "f13849aa-07c8-4921-a40b-322f1ec2bb7e",
+      "name": "Actualizar estado a activo",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0B9XQL0PAR",
+          "mode": "list",
+          "cachedResultName": "accounting"
+        },
+        "text": "=Onboarding completado: {{ $json.fields.nombres }} {{ $json.fields.apellidos }} – Plan {{ $json.fields.plan }}\n\n📊 Estado actualizado: {{ $json.fields.estado }}\n\n📅 Fecha de finalización: {{ new Date().toLocaleDateString('es-CO') }}\n\n📝 Observaciones: “Materiales iniciales aprobados y calendario de contenido activo.”",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        1152,
+        -48
+      ],
+      "id": "aff749a3-a1a2-4f05-ab8f-68517675a6ae",
+      "name": "Confirmacion cliente en estado activo",
+      "webhookId": "95aee32c-999a-4be6-be88-09394339b7b1",
+      "credentials": {
+        "slackApi": {
+          "id": "PeZlQ2PeTrl2frP4",
+          "name": "Slack account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Get a task": {
+      "main": [
+        [
+          {
+            "node": "Es tarea principal?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Es tarea principal?": {
+      "main": [
+        [
+          {
+            "node": "Actualizar estado a activo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "ClickUp Task status Trigger": {
+      "main": [
+        [
+          {
+            "node": "Estado complete?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Estado complete?": {
+      "main": [
+        [
+          {
+            "node": "Get a task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualizar estado a activo": {
+      "main": [
+        [
+          {
+            "node": "Confirmacion cliente en estado activo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "59590de6-ac1c-4800-b84f-544ebf9a5262",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ca88ca86bc4a51c7fc34595854945c19b63cfab8fa478767692336200a39e016"
+  },
+  "id": "xFrlNEaiY3l8g6PY",
+  "tags": []
+}

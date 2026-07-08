@@ -1,0 +1,2825 @@
+{
+  "name": "2. AR Registro y organización interna",
+  "nodes": [
+    {
+      "parameters": {
+        "formId": "D4aGzb"
+      },
+      "type": "n8n-nodes-tallyforms.tallyTrigger",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        -256
+      ],
+      "id": "ffe20913-6da1-42dd-9e54-334204c6475c",
+      "name": "Plan Starter Tally Trigger",
+      "webhookId": "6b1c9f83-077f-4e26-8e7a-6142136dd395",
+      "executeOnce": false,
+      "credentials": {
+        "tallyApi": {
+          "id": "uuThbF7NzxVzLUAa",
+          "name": "Tally account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTXnpvye1v5KZOY",
+          "mode": "list",
+          "cachedResultName": "Respuestas_form",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblTXnpvye1v5KZOY"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Id_cliente": "={{ $json.fields['Id Cliente'] }}",
+            "telefono_contacto": "={{ $('Plan Starter Tally Trigger').item.json.question_KLpE9M.value }}",
+            "plan": "={{ $json.fields.plan }}",
+            "nombre_empresa_o_marca": "={{ $('Plan Starter Tally Trigger').item.json.question_AxrgEB.value }}",
+            "nombre_contacto_principal": "={{ $('Plan Starter Tally Trigger').item.json.question_BZEyr7.value }}",
+            "rol_contacto_principal": "={{ $('Plan Starter Tally Trigger').item.json.question_gLeeoO.value }}",
+            "Email_contacto_principal": "={{ $('Plan Starter Tally Trigger').item.json.question_k5bo26.value }}",
+            "sitio_web_redes_sociales": "={{ $('Plan Starter Tally Trigger').item.json.question_v4XZlA.value }}",
+            "objetivo_principal_estrategia": "={{ $('Plan Starter Tally Trigger').item.json.question_LXDreG.value }}",
+            "descripcion_breve_negocio": "={{ $('Plan Starter Tally Trigger').item.json.question_pGeEQV.value }}",
+            "eventos_proximos": "={{ $('Plan Starter Tally Trigger').item.json.question_1MWeLM.value }}",
+            "tono_comunicacion_preferido": "={{ $('Plan Starter Tally Trigger').item.json.question_ML14WY.value }}",
+            "Herramientas_utilizadas": "={{ $('Plan Starter Tally Trigger').item.json.question_JL1PQJ.value }}",
+            "materiales_existentes": "={{ $('Plan Starter Tally Trigger').item.json.question_gLblEN.value }}",
+            "Clientes": "={{ [$json.id] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id_cliente",
+              "displayName": "Id_cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nombre_empresa_o_marca",
+              "displayName": "nombre_empresa_o_marca",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nombre_contacto_principal",
+              "displayName": "nombre_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "rol_contacto_principal",
+              "displayName": "rol_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email_contacto_principal",
+              "displayName": "Email_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "telefono_contacto",
+              "displayName": "telefono_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sitio_web_redes_sociales",
+              "displayName": "sitio_web_redes_sociales",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "objetivo_principal_estrategia",
+              "displayName": "objetivo_principal_estrategia",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "descripcion_breve_negocio",
+              "displayName": "descripcion_breve_negocio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "eventos_proximos",
+              "displayName": "eventos_proximos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "tono_comunicacion_preferido",
+              "displayName": "tono_comunicacion_preferido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Herramientas_utilizadas",
+              "displayName": "Herramientas_utilizadas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "materiales_existentes",
+              "displayName": "materiales_existentes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "descripcion_publico_objetivo",
+              "displayName": "descripcion_publico_objetivo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "procesos_automatizacion",
+              "displayName": "procesos_automatizacion",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "roles_equipo",
+              "displayName": "roles_equipo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "indicadores_clave",
+              "displayName": "indicadores_clave",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "flujo_actual",
+              "displayName": "flujo_actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "presupuesto",
+              "displayName": "presupuesto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "requerimientos_tecnicos",
+              "displayName": "requerimientos_tecnicos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "documentacion_existente",
+              "displayName": "documentacion_existente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Clientes",
+              "displayName": "Clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        368,
+        -256
+      ],
+      "id": "49db9751-34e1-4eb0-8ee7-80cb3913fa74",
+      "name": "Guardar respuestas starter",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbwaWO7SQmTOO81",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblbwaWO7SQmTOO81"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "form_recibido": "Si",
+            "email": "={{ $json.question_k5bo26.value }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id Cliente",
+              "displayName": "Id Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No_cliente_ventas",
+              "displayName": "No_cliente_ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "nombres",
+              "displayName": "nombres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "apellidos",
+              "displayName": "apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No_contacto",
+              "displayName": "No_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "account-manager",
+              "displayName": "account-manager",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "fecha_pago",
+              "displayName": "fecha_pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "sitio",
+              "displayName": "sitio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "form_recibido",
+              "displayName": "form_recibido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        160,
+        -256
+      ],
+      "id": "7c43b54d-7b91-478c-b006-8f8c93730f7a",
+      "name": "Confirmación de recibido starter",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        1568,
+        80
+      ],
+      "id": "6dd3eb38-3a3a-4fca-a22d-c573f93e4902",
+      "placeholder": true
+    },
+    {
+      "parameters": {
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714438935",
+        "name": "={{ $('Confirmación de recibido starter').item.json.fields.nombres }} {{ $('Confirmación de recibido starter').item.json.fields.apellidos }} - {{ $('Confirmación de recibido starter').item.json.fields.plan }}",
+        "additionalFields": {
+          "assignees": [
+            95296885
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        560,
+        -256
+      ],
+      "id": "4de4c77b-4cd5-4702-b0d8-a73d36d2e525",
+      "name": "Crear tarea principal starter",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714438935",
+        "name": "={{ $json.taskName }}",
+        "additionalFields": {
+          "assignees": "={{ $json.assignee }}",
+          "content": "={{ $json.description }}",
+          "dueDate": "={{ $json.dueDate }}",
+          "parentId": "={{ $json.parentTaskId }}"
+        }
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        -208
+      ],
+      "id": "6a65692b-b8d8-467d-bebd-f4e0ca813749",
+      "name": "Crear subtareas starter",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbwaWO7SQmTOO81",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblbwaWO7SQmTOO81"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "form_recibido": "Si",
+            "email": "={{ $json.question_qO5rxk.value }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id Cliente",
+              "displayName": "Id Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No_cliente_ventas",
+              "displayName": "No_cliente_ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "nombres",
+              "displayName": "nombres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "apellidos",
+              "displayName": "apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No_contacto",
+              "displayName": "No_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "account-manager",
+              "displayName": "account-manager",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "fecha_pago",
+              "displayName": "fecha_pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "sitio",
+              "displayName": "sitio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "form_recibido",
+              "displayName": "form_recibido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        160,
+        48
+      ],
+      "id": "ce1dda96-fa59-418b-a729-083e634487f6",
+      "name": "Confirmación de recibido growth",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTXnpvye1v5KZOY",
+          "mode": "list",
+          "cachedResultName": "Respuestas_form",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblTXnpvye1v5KZOY"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Id_cliente": "={{ $json.fields['Id Cliente'] }}",
+            "telefono_contacto": "={{ $('Plan Growth Tally Trigger').item.json.question_QdoZgk.value }}",
+            "plan": "={{ $json.fields.plan }}",
+            "nombre_empresa_o_marca": "={{ $('Plan Growth Tally Trigger').item.json.question_Zl974v.value }}",
+            "nombre_contacto_principal": "={{ $('Plan Growth Tally Trigger').item.json.question_NLqjKb.value }}",
+            "rol_contacto_principal": "={{ $('Plan Growth Tally Trigger').item.json.question_XEJOBj.value }}",
+            "Email_contacto_principal": "={{ $('Plan Growth Tally Trigger').item.json.question_qO5rxk.value }}",
+            "sitio_web_redes_sociales": "={{ $('Plan Growth Tally Trigger').item.json.question_9ONkL4.value }}",
+            "Clientes": "={{ [$json.id] }}",
+            "objetivo_principal_estrategia": "={{ $('Plan Growth Tally Trigger').item.json.question_eL5J1o.value }}",
+            "descripcion_breve_negocio": "={{ $('Plan Growth Tally Trigger').item.json.question_WPJWGQ.label }}",
+            "descripcion_publico_objetivo": "={{ $('Plan Growth Tally Trigger').item.json.question_a0OLby.label }}",
+            "eventos_proximos": "={{ $('Plan Growth Tally Trigger').item.json.question_6RDlb5.value }}",
+            "tono_comunicacion_preferido": "={{ $('Plan Growth Tally Trigger').item.json.question_7oXABz.value }}",
+            "indicadores_clave": "={{ $('Plan Growth Tally Trigger').item.json.question_bLZpBE.value }}",
+            "Herramientas_utilizadas": "={{ $('Plan Growth Tally Trigger').item.json.question_AxrgoN.value }}",
+            "procesos_automatizacion": "={{ $('Plan Growth Tally Trigger').item.json.question_BZEyOY.value }}",
+            "roles_equipo": "={{ $('Plan Growth Tally Trigger').item.json.question_k5boDj.value }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id_cliente",
+              "displayName": "Id_cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nombre_empresa_o_marca",
+              "displayName": "nombre_empresa_o_marca",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nombre_contacto_principal",
+              "displayName": "nombre_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "rol_contacto_principal",
+              "displayName": "rol_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email_contacto_principal",
+              "displayName": "Email_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "telefono_contacto",
+              "displayName": "telefono_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sitio_web_redes_sociales",
+              "displayName": "sitio_web_redes_sociales",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "objetivo_principal_estrategia",
+              "displayName": "objetivo_principal_estrategia",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "descripcion_breve_negocio",
+              "displayName": "descripcion_breve_negocio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "eventos_proximos",
+              "displayName": "eventos_proximos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "tono_comunicacion_preferido",
+              "displayName": "tono_comunicacion_preferido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Herramientas_utilizadas",
+              "displayName": "Herramientas_utilizadas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "materiales_existentes",
+              "displayName": "materiales_existentes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "descripcion_publico_objetivo",
+              "displayName": "descripcion_publico_objetivo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "procesos_automatizacion",
+              "displayName": "procesos_automatizacion",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "roles_equipo",
+              "displayName": "roles_equipo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "indicadores_clave",
+              "displayName": "indicadores_clave",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "flujo_actual",
+              "displayName": "flujo_actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "presupuesto",
+              "displayName": "presupuesto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "requerimientos_tecnicos",
+              "displayName": "requerimientos_tecnicos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "documentacion_existente",
+              "displayName": "documentacion_existente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Clientes",
+              "displayName": "Clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        384,
+        48
+      ],
+      "id": "6d179807-aaa4-43cb-a312-9d038888895f",
+      "name": "Guardar respuestas growth",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714436794",
+        "name": "={{ $('Confirmación de recibido growth').item.json.fields.nombres }} {{ $('Confirmación de recibido growth').item.json.fields.apellidos }} - {{ $('Confirmación de recibido growth').item.json.fields.plan }}",
+        "additionalFields": {
+          "assignees": [
+            95296885
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        576,
+        48
+      ],
+      "id": "0511e13e-08c9-425f-af8b-8426968c9c1c",
+      "name": "Crear tarea principal growth",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0B9XQL0PAR",
+          "mode": "list",
+          "cachedResultName": "accounting"
+        },
+        "text": "=🚀 Nuevo cliente en onboarding: {{ $('Confirmación de recibido starter').item.json.fields.nombres }} {{ $('Confirmación de recibido starter').item.json.fields.apellidos }} – Plan {{ $('Confirmación de recibido starter').item.json.fields.plan }}\n\nAccount Manager: {{ $('Confirmación de recibido starter').item.json.fields[\"account-manager\"] }}\n\nEnlace ClickUp: {{ $json.url }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        1040,
+        -384
+      ],
+      "id": "8802cd88-e853-427d-baa7-57592fb5806a",
+      "name": "Mensaje confirmacion starter",
+      "webhookId": "4240e6c5-25f6-4e0c-aa39-b5ec108033db",
+      "credentials": {
+        "slackApi": {
+          "id": "PeZlQ2PeTrl2frP4",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0B9XQL0PAR",
+          "mode": "list",
+          "cachedResultName": "accounting"
+        },
+        "text": "=🚀 Nuevo cliente en onboarding: {{ $('Confirmación de recibido growth').item.json.fields.nombres }} {{ $('Confirmación de recibido growth').item.json.fields.apellidos }} – Plan {{ $('Confirmación de recibido growth').item.json.fields.plan }}\n\nAccount Manager: {{ $('Confirmación de recibido growth').item.json.fields[\"account-manager\"] }}\n\nEnlace ClickUp: {{ $json.url }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        1040,
+        -48
+      ],
+      "id": "3b4ab5c1-006e-46db-a1b1-561ec9d5a6e6",
+      "name": "Mensaje confirmacion growth",
+      "webhookId": "4240e6c5-25f6-4e0c-aa39-b5ec108033db",
+      "credentials": {
+        "slackApi": {
+          "id": "PeZlQ2PeTrl2frP4",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const parentTaskId = $('Crear tarea principal starter').first().json.id;\n\nconst OPERACIONES = [101235303];\nconst CONTABILIDAD = [101235304];\n\nconst subtareas = [\n  {\n    nombre: \"1. Confirmar recepción del brief y validar datos en Airtable\",\n    descripcion: \"Validar la información recibida desde Tally y confirmar que los datos del cliente estén correctamente registrados en Airtable.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 1\n  },\n  {\n    nombre: \"2. Crear carpeta del cliente en Google Drive y compartir con el equipo\",\n    descripcion: \"Crear la estructura de carpetas del cliente y compartirla con las áreas involucradas en el proyecto.\",\n    responsable: OPERACIONES,\n    diasHabiles: 1\n  },\n  {\n    nombre: \"3. Registrar cliente en Airtable\",\n    descripcion: \"Crear o actualizar el registro del cliente con la información necesaria para la operación.\",\n    responsable: OPERACIONES,\n    diasHabiles: 2\n  },\n  {\n    nombre: \"4. Notificar al equipo en Slack sobre el nuevo cliente\",\n    descripcion: \"Informar al equipo interno sobre el ingreso del nuevo cliente y compartir la información relevante.\",\n    responsable: OPERACIONES,\n    diasHabiles: 0\n  },\n  {\n    nombre: \"5. Agendar reunión de bienvenida (Kickoff call)\",\n    descripcion: \"Coordinar fecha y hora para la reunión inicial de onboarding con el cliente.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 3\n  },\n  {\n    nombre: \"6. Preparar checklist de setup básico (accesos, redes, sitio web)\",\n    descripcion: \"Validar accesos, redes sociales, sitio web y demás recursos necesarios para iniciar la operación.\",\n    responsable: OPERACIONES,\n    diasHabiles: 3\n  }\n];\n\nfunction agregarDiasHabiles(fecha, dias) {\n  let resultado = new Date(fecha);\n\n  while (dias > 0) {\n    resultado.setDate(resultado.getDate() + 1);\n\n    const diaSemana = resultado.getDay();\n\n    if (diaSemana !== 0 && diaSemana !== 6) {\n      dias--;\n    }\n  }\n\n  return resultado;\n}\n\nreturn subtareas.map(tarea => {\n\n  const fechaVencimiento = agregarDiasHabiles(\n    new Date(),\n    tarea.diasHabiles\n  );\n\n  return {\n    json: {\n      parentTaskId,\n      taskName: tarea.nombre,\n      description: tarea.descripcion,\n      assignee: tarea.responsable,\n      dueDate: fechaVencimiento.getTime()\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        -208
+      ],
+      "id": "811fa7b9-229d-4d31-b9ed-9d493233526a",
+      "name": "Mapeo subtareas starter"
+    },
+    {
+      "parameters": {
+        "jsCode": "const parentTaskId = $('Crear tarea principal growth').first().json.id;\n\nconst OPERACIONES = [101235303];\nconst CONTABILIDAD = [101235304];\n\nconst subtareas = [\n  {\n    nombre: \"1. Validar y aprobar el brief completo\",\n    descripcion: \"Revisar la información recibida y aprobar el brief para iniciar el proceso de onboarding.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 1\n  },\n  {\n    nombre: \"2. Configurar cliente en Airtable con campos completos\",\n    descripcion: \"Crear o actualizar el registro del cliente con toda la información comercial y operativa requerida.\",\n    responsable: OPERACIONES,\n    diasHabiles: 2\n  },\n  {\n    nombre: \"3. Notificar al equipo interno en Slack\",\n    descripcion: \"Comunicar el ingreso del nuevo cliente y compartir la información relevante con el equipo.\",\n    responsable: OPERACIONES,\n    diasHabiles: 0\n  },\n  {\n    nombre: \"4. Crear carpeta compartida del cliente (Drive / Notion)\",\n    descripcion: \"Crear la estructura de documentación y recursos compartidos para el cliente.\",\n    responsable: OPERACIONES,\n    diasHabiles: 2\n  },\n  {\n    nombre: \"5. Configurar accesos a plataformas publicitarias y analíticas\",\n    descripcion: \"Validar y configurar accesos a herramientas publicitarias, analíticas y de seguimiento.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 4\n  },\n  {\n    nombre: \"6. Crear dashboard interno con métricas básicas\",\n    descripcion: \"Configurar un dashboard inicial para el seguimiento de indicadores y resultados del cliente.\",\n    responsable: OPERACIONES,\n    diasHabiles: 5\n  },\n  {\n    nombre: \"7. Confirmar canal y frecuencia de comunicación con el cliente\",\n    descripcion: \"Definir y documentar los canales de comunicación y la frecuencia de seguimiento acordada.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 3\n  }\n];\n\nfunction agregarDiasHabiles(fecha, dias) {\n  let resultado = new Date(fecha);\n\n  while (dias > 0) {\n    resultado.setDate(resultado.getDate() + 1);\n\n    const diaSemana = resultado.getDay();\n\n    if (diaSemana !== 0 && diaSemana !== 6) {\n      dias--;\n    }\n  }\n\n  return resultado;\n}\n\nreturn subtareas.map(tarea => {\n\n  const fechaVencimiento = agregarDiasHabiles(\n    new Date(),\n    tarea.diasHabiles\n  );\n\n  return {\n    json: {\n      parentTaskId,\n      taskName: tarea.nombre,\n      description: tarea.descripcion,\n      assignee: tarea.responsable,\n      dueDate: fechaVencimiento.getTime()\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        112
+      ],
+      "id": "ce663d1b-7d5e-47af-b8e6-35b60a13dd62",
+      "name": "Mapeo subtareas growth"
+    },
+    {
+      "parameters": {
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714436794",
+        "name": "={{ $json.taskName }}",
+        "additionalFields": {
+          "assignees": "={{ $json.assignee }}",
+          "content": "={{ $json.description }}",
+          "dueDate": "={{ $json.dueDate }}",
+          "parentId": "={{ $json.parentTaskId }}"
+        }
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        1248,
+        112
+      ],
+      "id": "77e08d7c-6eb0-4dc1-88d7-70d0a00508b3",
+      "name": "Crear subtarea growth",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbwaWO7SQmTOO81",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblbwaWO7SQmTOO81"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "form_recibido": "Si",
+            "email": "={{ $json.question_qO5948.value }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id Cliente",
+              "displayName": "Id Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No_cliente_ventas",
+              "displayName": "No_cliente_ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "nombres",
+              "displayName": "nombres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "apellidos",
+              "displayName": "apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No_contacto",
+              "displayName": "No_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "account-manager",
+              "displayName": "account-manager",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "fecha_pago",
+              "displayName": "fecha_pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "sitio",
+              "displayName": "sitio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "form_recibido",
+              "displayName": "form_recibido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Id_task_principal_clickup",
+              "displayName": "Id_task_principal_clickup",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        160,
+        352
+      ],
+      "id": "99e25aad-2f56-4815-a6d9-40fb13e17afc",
+      "name": "Confirmación de recibido premium",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblTXnpvye1v5KZOY",
+          "mode": "list",
+          "cachedResultName": "Respuestas_form",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblTXnpvye1v5KZOY"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Id_cliente": "={{ $json.fields['Id Cliente'] }}",
+            "telefono_contacto": "={{ $('Plan Premium Tally Trigger').item.json.question_QdobKl.value }}",
+            "plan": "={{ $json.fields.plan }}",
+            "nombre_empresa_o_marca": "={{ $('Plan Premium Tally Trigger').item.json.question_Zl9MjA.value }}",
+            "nombre_contacto_principal": "={{ $('Plan Premium Tally Trigger').item.json.question_NLqapN.value }}",
+            "rol_contacto_principal": "={{ $('Plan Premium Tally Trigger').item.json.question_jLbbOR.value }}",
+            "Email_contacto_principal": "={{ $('Plan Premium Tally Trigger').item.json.question_qO5948.value }}",
+            "sitio_web_redes_sociales": "={{ $('Plan Premium Tally Trigger').item.json.question_9ON8qK.value }}",
+            "objetivo_principal_estrategia": "={{ $('Plan Premium Tally Trigger').item.json.question_eL5VqJ.value }}",
+            "Clientes": "={{ [$json.id] }}",
+            "indicadores_clave": "={{ $('Plan Premium Tally Trigger').item.json.question_WPJLOL.value }}",
+            "descripcion_breve_negocio": "={{ $('Plan Premium Tally Trigger').item.json.question_a0ORQW.value }}",
+            "tono_comunicacion_preferido": "={{ $('Plan Premium Tally Trigger').item.json.question_6RDg8o.value }}",
+            "Herramientas_utilizadas": "={{ $('Plan Premium Tally Trigger').item.json.question_7oXyR6.value }}",
+            "flujo_actual": "={{ $('Plan Premium Tally Trigger').item.json.question_bLZo50.value }}",
+            "procesos_automatizacion": "={{ $('Plan Premium Tally Trigger').item.json.question_AxrE7o.value }}",
+            "presupuesto": "={{ $('Plan Premium Tally Trigger').item.json.question_BZErE4.value }}",
+            "roles_equipo": "={{ $('Plan Premium Tally Trigger').item.json.question_k5b2bd.value }}",
+            "requerimientos_tecnicos": "={{ $('Plan Premium Tally Trigger').item.json.question_v4XlXX.value }}",
+            "documentacion_existente": "={{ $('Plan Premium Tally Trigger').item.json.question_KLp9pz.value }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id_cliente",
+              "displayName": "Id_cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nombre_empresa_o_marca",
+              "displayName": "nombre_empresa_o_marca",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nombre_contacto_principal",
+              "displayName": "nombre_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "rol_contacto_principal",
+              "displayName": "rol_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email_contacto_principal",
+              "displayName": "Email_contacto_principal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "telefono_contacto",
+              "displayName": "telefono_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sitio_web_redes_sociales",
+              "displayName": "sitio_web_redes_sociales",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "objetivo_principal_estrategia",
+              "displayName": "objetivo_principal_estrategia",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "descripcion_breve_negocio",
+              "displayName": "descripcion_breve_negocio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "eventos_proximos",
+              "displayName": "eventos_proximos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "tono_comunicacion_preferido",
+              "displayName": "tono_comunicacion_preferido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Herramientas_utilizadas",
+              "displayName": "Herramientas_utilizadas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "materiales_existentes",
+              "displayName": "materiales_existentes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "descripcion_publico_objetivo",
+              "displayName": "descripcion_publico_objetivo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "procesos_automatizacion",
+              "displayName": "procesos_automatizacion",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "roles_equipo",
+              "displayName": "roles_equipo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "indicadores_clave",
+              "displayName": "indicadores_clave",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "flujo_actual",
+              "displayName": "flujo_actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "presupuesto",
+              "displayName": "presupuesto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "requerimientos_tecnicos",
+              "displayName": "requerimientos_tecnicos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "documentacion_existente",
+              "displayName": "documentacion_existente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Clientes",
+              "displayName": "Clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        384,
+        352
+      ],
+      "id": "cb2cd3b8-6679-460d-bbea-27be9c2a7298",
+      "name": "Guardar respuestas premium",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714438950",
+        "name": "={{ $('Confirmación de recibido premium').item.json.fields.nombres }} {{ $('Confirmación de recibido premium').item.json.fields.apellidos }} - {{ $('Confirmación de recibido premium').item.json.fields.plan }}",
+        "additionalFields": {
+          "assignees": [
+            95296885
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        576,
+        352
+      ],
+      "id": "00d11b95-4f4b-437b-9edb-5006cf44bf8d",
+      "name": "Crear tarea principal premium",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0B9XQL0PAR",
+          "mode": "list",
+          "cachedResultName": "accounting"
+        },
+        "text": "=🚀 Nuevo cliente en onboarding: {{ $('Confirmación de recibido premium').item.json.fields.nombres }} {{ $('Confirmación de recibido premium').item.json.fields.apellidos }} – Plan {{ $('Confirmación de recibido premium').item.json.fields.plan }}\n\nAccount Manager: {{ $('Confirmación de recibido premium').item.json.fields[\"account-manager\"] }}\n\nEnlace ClickUp: {{ $json.url }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        1040,
+        272
+      ],
+      "id": "0df41ad5-3771-4aa8-b5c9-44dcb4b9be74",
+      "name": "mensaje confirmacion premium",
+      "webhookId": "4240e6c5-25f6-4e0c-aa39-b5ec108033db",
+      "credentials": {
+        "slackApi": {
+          "id": "PeZlQ2PeTrl2frP4",
+          "name": "Slack account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const parentTaskId = $('Crear tarea principal premium').first().json.id;\n\nconst OPERACIONES = [101235303];\nconst CONTABILIDAD = [101235304];\n\nconst subtareas = [\n  {\n    nombre: \"1. Validar brief estratégico y definir KPIs principales\",\n    descripcion: \"Revisar la información estratégica del cliente y definir los indicadores clave de seguimiento.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 2\n  },\n  {\n    nombre: \"2. Revisar accesos y permisos (CRM, Ads, Analytics)\",\n    descripcion: \"Validar accesos y permisos a plataformas publicitarias, CRM y herramientas analíticas.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 3\n  },\n  {\n    nombre: \"3. Configurar registro en Airtable vía automatización\",\n    descripcion: \"Crear o validar el registro completo del cliente mediante los procesos automatizados.\",\n    responsable: OPERACIONES,\n    diasHabiles: 2\n  },\n  {\n    nombre: \"4. Crear tablero en ClickUp con subtareas por área\",\n    descripcion: \"Configurar el tablero de trabajo incluyendo Paid Media, Orgánico, Diseño y Data.\",\n    responsable: OPERACIONES,\n    diasHabiles: 2\n  },\n  {\n    nombre: \"5. Notificar en Slack a todos los equipos involucrados\",\n    descripcion: \"Comunicar el ingreso del cliente y compartir la información relevante con las áreas participantes.\",\n    responsable: OPERACIONES,\n    diasHabiles: 0\n  },\n  {\n    nombre: \"6. Crear dashboard de seguimiento (Data Studio / Looker)\",\n    descripcion: \"Configurar dashboard inicial para monitoreo de métricas y resultados del cliente.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 5\n  },\n  {\n    nombre: \"7. Documentar procesos y accesos en carpeta Drive\",\n    descripcion: \"Centralizar documentación, accesos y procesos operativos del cliente.\",\n    responsable: OPERACIONES,\n    diasHabiles: 5\n  },\n  {\n    nombre: \"8. Programar sesión de traspaso con cliente y equipo\",\n    descripcion: \"Coordinar reunión de onboarding y alineación entre cliente y equipo interno.\",\n    responsable: CONTABILIDAD,\n    diasHabiles: 7\n  }\n];\n\nfunction agregarDiasHabiles(fecha, dias) {\n  let resultado = new Date(fecha);\n\n  while (dias > 0) {\n    resultado.setDate(resultado.getDate() + 1);\n\n    const diaSemana = resultado.getDay();\n\n    if (diaSemana !== 0 && diaSemana !== 6) {\n      dias--;\n    }\n  }\n\n  return resultado;\n}\n\nreturn subtareas.map(tarea => {\n\n  const fechaVencimiento = agregarDiasHabiles(\n    new Date(),\n    tarea.diasHabiles\n  );\n\n  return {\n    json: {\n      parentTaskId,\n      taskName: tarea.nombre,\n      description: tarea.descripcion,\n      assignee: tarea.responsable,\n      dueDate: fechaVencimiento.getTime()\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        416
+      ],
+      "id": "eae944e3-b953-468b-a0d3-f2e3ba031445",
+      "name": "Mapeo subtareas premium"
+    },
+    {
+      "parameters": {
+        "team": "90171308986",
+        "space": "90176018600",
+        "folderless": true,
+        "list": "901714438950",
+        "name": "={{ $json.taskName }}",
+        "additionalFields": {
+          "assignees": "={{ $json.assignee }}",
+          "content": "={{ $json.description }}",
+          "dueDate": "={{ $json.dueDate }}",
+          "parentId": "={{ $json.parentTaskId }}"
+        }
+      },
+      "type": "n8n-nodes-base.clickUp",
+      "typeVersion": 1,
+      "position": [
+        1232,
+        416
+      ],
+      "id": "19be2361-7f35-4816-ab5b-af6f73955791",
+      "name": "Crear subtarea",
+      "credentials": {
+        "clickUpApi": {
+          "id": "01mGAy5oH0INyiJc",
+          "name": "ClickUp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbwaWO7SQmTOO81",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblbwaWO7SQmTOO81"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $('Plan Starter Tally Trigger').item.json.question_k5bo26.value }}",
+            "Id_task_principal_clickup": "={{ $json.id }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id Cliente",
+              "displayName": "Id Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No_cliente_ventas",
+              "displayName": "No_cliente_ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "nombres",
+              "displayName": "nombres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "apellidos",
+              "displayName": "apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No_contacto",
+              "displayName": "No_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "account-manager",
+              "displayName": "account-manager",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "fecha_pago",
+              "displayName": "fecha_pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "sitio",
+              "displayName": "sitio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "form_recibido",
+              "displayName": "form_recibido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_task_principal_clickup",
+              "displayName": "Id_task_principal_clickup",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        768,
+        -256
+      ],
+      "id": "e2d1b877-35a1-4f80-81cc-9f7896c2681e",
+      "name": "Guardar task principal starter",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbwaWO7SQmTOO81",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblbwaWO7SQmTOO81"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $('Plan Growth Tally Trigger').item.json.question_qO5rxk.value }}",
+            "Id_task_principal_clickup": "={{ $json.id }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id Cliente",
+              "displayName": "Id Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No_cliente_ventas",
+              "displayName": "No_cliente_ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "nombres",
+              "displayName": "nombres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "apellidos",
+              "displayName": "apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No_contacto",
+              "displayName": "No_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "account-manager",
+              "displayName": "account-manager",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "fecha_pago",
+              "displayName": "fecha_pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "sitio",
+              "displayName": "sitio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "form_recibido",
+              "displayName": "form_recibido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_task_principal_clickup",
+              "displayName": "Id_task_principal_clickup",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        768,
+        48
+      ],
+      "id": "bb9464c6-00b3-468e-b0a6-18759892b601",
+      "name": "Guardar task principal growth",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbwaWO7SQmTOO81",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblbwaWO7SQmTOO81"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $('Plan Premium Tally Trigger').item.json.question_qO5948.value }}",
+            "Id_task_principal_clickup": "={{ $json.id }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Id Cliente",
+              "displayName": "Id Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No_cliente_ventas",
+              "displayName": "No_cliente_ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "nombres",
+              "displayName": "nombres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "apellidos",
+              "displayName": "apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No_contacto",
+              "displayName": "No_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "account-manager",
+              "displayName": "account-manager",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "fecha_pago",
+              "displayName": "fecha_pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "sitio",
+              "displayName": "sitio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "form_recibido",
+              "displayName": "form_recibido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Id_task_principal_clickup",
+              "displayName": "Id_task_principal_clickup",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        768,
+        352
+      ],
+      "id": "98ce71e9-2407-468d-93a2-c5d0e982536d",
+      "name": "Guardar task principal premium",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "0QkW60"
+      },
+      "type": "n8n-nodes-tallyforms.tallyTrigger",
+      "typeVersion": 2,
+      "position": [
+        -96,
+        48
+      ],
+      "id": "88b36fbe-4a45-41ff-81f7-e04e6edc3051",
+      "name": "Plan Growth Tally Trigger",
+      "webhookId": "51553fe5-7c84-41eb-a2d2-c2b9adacb1f3",
+      "credentials": {
+        "tallyApi": {
+          "id": "uuThbF7NzxVzLUAa",
+          "name": "Tally account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formId": "lbzEyp"
+      },
+      "type": "n8n-nodes-tallyforms.tallyTrigger",
+      "typeVersion": 2,
+      "position": [
+        -96,
+        352
+      ],
+      "id": "b24c8ae7-7dbb-4f25-bafc-767180a875fb",
+      "name": "Plan Premium Tally Trigger",
+      "webhookId": "f4b6ee99-98ee-4b42-b68a-b36d0f1a33be",
+      "credentials": {
+        "tallyApi": {
+          "id": "uuThbF7NzxVzLUAa",
+          "name": "Tally account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Plan Starter Tally Trigger": {
+      "main": [
+        [
+          {
+            "node": "Confirmación de recibido starter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar respuestas starter": {
+      "main": [
+        [
+          {
+            "node": "Crear tarea principal starter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirmación de recibido starter": {
+      "main": [
+        [
+          {
+            "node": "Guardar respuestas starter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        []
+      ]
+    },
+    "Crear tarea principal starter": {
+      "main": [
+        [
+          {
+            "node": "Guardar task principal starter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear subtareas starter": {
+      "main": [
+        []
+      ]
+    },
+    "Confirmación de recibido growth": {
+      "main": [
+        [
+          {
+            "node": "Guardar respuestas growth",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar respuestas growth": {
+      "main": [
+        [
+          {
+            "node": "Crear tarea principal growth",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear tarea principal growth": {
+      "main": [
+        [
+          {
+            "node": "Guardar task principal growth",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mapeo subtareas starter": {
+      "main": [
+        [
+          {
+            "node": "Crear subtareas starter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mapeo subtareas growth": {
+      "main": [
+        [
+          {
+            "node": "Crear subtarea growth",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear subtarea growth": {
+      "main": [
+        []
+      ]
+    },
+    "Confirmación de recibido premium": {
+      "main": [
+        [
+          {
+            "node": "Guardar respuestas premium",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar respuestas premium": {
+      "main": [
+        [
+          {
+            "node": "Crear tarea principal premium",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear tarea principal premium": {
+      "main": [
+        [
+          {
+            "node": "Guardar task principal premium",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mapeo subtareas premium": {
+      "main": [
+        [
+          {
+            "node": "Crear subtarea",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear subtarea": {
+      "main": [
+        []
+      ]
+    },
+    "Guardar task principal starter": {
+      "main": [
+        [
+          {
+            "node": "Mensaje confirmacion starter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mapeo subtareas starter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar task principal growth": {
+      "main": [
+        [
+          {
+            "node": "Mensaje confirmacion growth",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mapeo subtareas growth",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar task principal premium": {
+      "main": [
+        [
+          {
+            "node": "mensaje confirmacion premium",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mapeo subtareas premium",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Plan Growth Tally Trigger": {
+      "main": [
+        [
+          {
+            "node": "Confirmación de recibido growth",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Plan Premium Tally Trigger": {
+      "main": [
+        [
+          {
+            "node": "Confirmación de recibido premium",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "07b38d27-679b-47e0-8182-bc9e25209099",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ca88ca86bc4a51c7fc34595854945c19b63cfab8fa478767692336200a39e016"
+  },
+  "id": "hg8OHcXGwHuWUBaJ",
+  "tags": []
+}

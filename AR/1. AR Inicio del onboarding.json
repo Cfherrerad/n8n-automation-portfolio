@@ -1,0 +1,576 @@
+{
+  "name": "1. AR Inicio del onboarding",
+  "nodes": [
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Ventas Google Sheets Trigger').item.json.Plan }}",
+                    "rightValue": "Starter",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "b85c2afd-0560-4270-b615-3acaf8ebcad1"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "e0e84d26-b231-443a-a728-adc414f476f2",
+                    "leftValue": "={{ $('Ventas Google Sheets Trigger').item.json.Plan }}",
+                    "rightValue": "Growth",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "685f5c54-eacf-434f-a67b-168e0bfe52ca",
+                    "leftValue": "={{ $('Ventas Google Sheets Trigger').item.json.Plan }}",
+                    "rightValue": "Premium",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        512,
+        -16
+      ],
+      "id": "97ec3466-d11e-4f7b-a6ca-a135a896c78f",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": []
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "19-2n_n2KrtZglti9fPbIMp6ngpitG6EUwecZu3FYmuc",
+          "mode": "list",
+          "cachedResultName": "Clientes Nuevos Agencia Roca",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19-2n_n2KrtZglti9fPbIMp6ngpitG6EUwecZu3FYmuc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19-2n_n2KrtZglti9fPbIMp6ngpitG6EUwecZu3FYmuc/edit#gid=0"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -352,
+        0
+      ],
+      "id": "b9268340-a15d-46b3-9cdf-574258acb6bb",
+      "name": "Ventas Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "khnXeqafbyg5lc1x",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Ventas Google Sheets Trigger').item.json.Email }}",
+        "subject": "🌟 ¡Empezamos juntos! Bienvenida al Plan Starter",
+        "message": "={{\n`\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Bienvenido</title>\n</head>\n<body style=\"font-family: Arial, Helvetica, sans-serif; background-color: #f4f6f8; margin: 0; padding: 20px;\">\n\n    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width: 650px; margin: auto; background-color: #ffffff; border-radius: 10px; overflow: hidden;\">\n\n        <tr>\n            <td style=\"background-color: #16a34a; padding: 25px; color: white; text-align: center;\">\n                <h1 style=\"margin: 0;\">🎉 ¡Bienvenido!</h1>\n            </td>\n        </tr>\n\n        <tr>\n            <td style=\"padding: 30px; color: #333333; line-height: 1.6;\">\n\n                <p>\n                    Hola <strong>${\n                        $('Ventas Google Sheets Trigger').first().json.Nombres\n                    } ${\n                        $('Ventas Google Sheets Trigger').first().json.Apellidos\n                    }</strong>,\n                </p>\n\n                <p>\n                    ¡Qué alegría tenerte con nosotros! 🎉\n                </p>\n\n                <p>\n                    Sabemos que dar los primeros pasos en el mundo digital puede ser desafiante,\n                    pero no te preocupes. Nuestro equipo te acompañará en todo el proceso para que\n                    tu marca crezca con solidez.\n                </p>\n\n                <p>\n                    Para comenzar, necesitamos conocer un poco más sobre tu negocio y tus objetivos.\n                    Por favor, completa el siguiente brief de inicio:\n                </p>\n\n                <p style=\"text-align: center; margin: 30px 0;\">\n                    <a href=\"https://tally.so/r/D4aGzb\"\n                       style=\"background-color: #16a34a; color: white; text-decoration: none; padding: 14px 24px; border-radius: 6px; display: inline-block;\">\n                        👉 Completar Brief de Inicio\n                    </a>\n                </p>\n\n                <p>\n                    Una vez que lo recibamos, prepararemos todo lo necesario para tu configuración inicial\n                    y coordinaremos una reunión de bienvenida para presentarte al equipo.\n                </p>\n\n                <p>\n                    Si tienes dudas, puedes escribirnos directamente respondiendo este correo o desde\n                    nuestro canal de soporte.\n                </p>\n\n                <p>\n                    ¡Estamos muy felices de empezar este camino contigo!\n                </p>\n\n                <br>\n\n                <p>\n                    💚 <strong>El equipo de Agencia Roca</strong>\n                </p>\n\n            </td>\n        </tr>\n\n        <tr>\n            <td style=\"background-color: #f3f4f6; color: #6b7280; text-align: center; padding: 15px; font-size: 12px;\">\n                Este correo fue enviado automáticamente por nuestro sistema de onboarding.\n            </td>\n        </tr>\n\n    </table>\n\n</body>\n</html>\n`\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        752,
+        -208
+      ],
+      "id": "f0eb6ded-6b48-46a0-be7b-d8addcd6e6c3",
+      "name": "Plan Starter Send a message",
+      "webhookId": "2cdb7150-ffd0-4be3-b75d-019c76bd6a52",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "94yKaQjOS5EAbETf",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Ventas Google Sheets Trigger').item.json.Email }}",
+        "subject": "🚀 ¡Tu Plan Growth ya está en marcha!",
+        "message": "={{\n`\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Plan Growth Activado</title>\n</head>\n<body style=\"font-family: Arial, Helvetica, sans-serif; background-color: #f4f6f8; margin: 0; padding: 20px;\">\n\n    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width: 650px; margin: auto; background-color: #ffffff; border-radius: 10px; overflow: hidden;\">\n\n        <tr>\n            <td style=\"background-color: #2563eb; padding: 25px; color: white; text-align: center;\">\n                <h1 style=\"margin: 0;\">🚀 ¡Plan Growth Activado!</h1>\n            </td>\n        </tr>\n\n        <tr>\n            <td style=\"padding: 30px; color: #333333; line-height: 1.6;\">\n\n                <p>\n                    Hola <strong>${\n                        $('Ventas Google Sheets Trigger').first().json.Nombres\n                    } ${\n                        $('Ventas Google Sheets Trigger').first().json.Apellidos\n                    }</strong>,\n                </p>\n\n                <p>\n                    ¡Excelente noticia! Tu plan <strong>Growth</strong> acaba de activarse y ya estamos trabajando para impulsar tus resultados. 🚀\n                </p>\n\n                <p>\n                    En esta etapa vamos a analizar tus procesos actuales, identificar oportunidades de automatización y definir juntos los próximos hitos de tu estrategia.\n                </p>\n\n                <p>\n                    Para avanzar, completa el siguiente brief de inicio:\n                </p>\n\n                <p style=\"text-align: center; margin: 30px 0;\">\n                    <a href=\"https://tally.so/r/0QkW60\"\n                       style=\"background-color: #2563eb; color: white; text-decoration: none; padding: 14px 24px; border-radius: 6px; display: inline-block;\">\n                        👉 Completar Brief Growth\n                    </a>\n                </p>\n\n                <p>\n                    Este documento nos ayudará a entender tus métricas, herramientas actuales y prioridades para comenzar con la configuración del plan.\n                </p>\n\n                <p>\n                    Una vez completado, te contactaremos para agendar una reunión de arranque y presentarte el flujo de trabajo adaptado a tu negocio.\n                </p>\n\n                <p>\n                    ¡Gracias por seguir creciendo con nosotros!\n                </p>\n\n                <br>\n\n                <p>\n                    💼 <strong>El equipo de Agencia Roca</strong>\n                </p>\n\n            </td>\n        </tr>\n\n        <tr>\n            <td style=\"background-color: #f3f4f6; color: #6b7280; text-align: center; padding: 15px; font-size: 12px;\">\n                Este correo fue enviado automáticamente por nuestro sistema de onboarding.\n            </td>\n        </tr>\n\n    </table>\n\n</body>\n</html>\n`\n}}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        752,
+        0
+      ],
+      "id": "84f2cbd8-9f16-47a1-803d-7c963884a464",
+      "name": "Plan Growth Send a message",
+      "webhookId": "2cdb7150-ffd0-4be3-b75d-019c76bd6a52",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "94yKaQjOS5EAbETf",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Ventas Google Sheets Trigger').item.json.Email }}",
+        "subject": "✨ Bienvenida al Plan Pro: comenzamos tu proceso estratégico",
+        "message": "={{\n`\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Bienvenido al Plan Pro</title>\n</head>\n<body style=\"font-family: Arial, Helvetica, sans-serif; background-color: #f4f6f8; margin: 0; padding: 20px;\">\n\n    <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"max-width: 650px; margin: auto; background-color: #ffffff; border-radius: 10px; overflow: hidden;\">\n\n        <tr>\n            <td style=\"background-color: #7c3aed; padding: 25px; color: white; text-align: center;\">\n                <h1 style=\"margin: 0;\">🚀 Bienvenido al Plan Pro</h1>\n            </td>\n        </tr>\n\n        <tr>\n            <td style=\"padding: 30px; color: #333333; line-height: 1.6;\">\n\n                <p>\n                    Hola <strong>${\n                        $('Ventas Google Sheets Trigger').first().json.Nombres\n                    } ${\n                        $('Ventas Google Sheets Trigger').first().json.Apellidos\n                    }</strong>,\n                </p>\n\n                <p>\n                    Es un placer darte la bienvenida al <strong>Plan Pro</strong>.\n                    A partir de hoy trabajaremos junto a tu equipo para alinear estrategia,\n                    datos y automatizaciones que potencien la escalabilidad de tu negocio.\n                </p>\n\n                <p>\n                    Como primer paso, te pedimos completar el siguiente brief estratégico:\n                </p>\n\n                <p style=\"text-align: center; margin: 30px 0;\">\n                    <a href=\"https://tally.so/r/lbzEyp\"\n                       style=\"background-color: #7c3aed; color: white; text-decoration: none; padding: 14px 24px; border-radius: 6px; display: inline-block;\">\n                        👉 Completar Brief Estratégico\n                    </a>\n                </p>\n\n                <p>\n                    Este documento nos permitirá mapear tus sistemas actuales,\n                    entender tus KPIs y definir los puntos de integración con tus plataformas.\n                </p>\n\n                <p>\n                    Una vez que recibamos tu información, coordinaremos una reunión ejecutiva\n                    de kickoff donde revisaremos el roadmap técnico y los entregables iniciales.\n                </p>\n\n                <p>\n                    Agradecemos tu confianza. Este es el comienzo de una colaboración\n                    de alto impacto orientada al crecimiento y la optimización de tu negocio.\n                </p>\n\n                <br>\n\n                <p>\n                    🚀 <strong>El equipo de Agencia Roca</strong>\n                </p>\n\n            </td>\n        </tr>\n\n        <tr>\n            <td style=\"background-color: #f3f4f6; color: #6b7280; text-align: center; padding: 15px; font-size: 12px;\">\n                Este correo fue enviado automáticamente por nuestro sistema de onboarding.\n            </td>\n        </tr>\n\n    </table>\n\n</body>\n</html>\n`\n}}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        752,
+        192
+      ],
+      "id": "38af60b5-0698-4739-b490-e900b9effb5c",
+      "name": "Plan Premium Send a message",
+      "webhookId": "2cdb7150-ffd0-4be3-b75d-019c76bd6a52",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "94yKaQjOS5EAbETf",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5bf4ab92-c2bc-45ee-bead-7feace2554be",
+              "name": "No cliente",
+              "value": "={{ $('Ventas Google Sheets Trigger').item.json[\"No cliente\"] }}",
+              "type": "number"
+            },
+            {
+              "id": "7e02541e-2c6c-4d22-922c-fd266c68e342",
+              "name": "Nombres",
+              "value": "={{ $('Ventas Google Sheets Trigger').item.json.Nombres }}",
+              "type": "string"
+            },
+            {
+              "id": "29bdb84b-6c70-427f-aa4c-520ce747a8e1",
+              "name": "Apellidos",
+              "value": "={{ $('Ventas Google Sheets Trigger').item.json.Apellidos }}",
+              "type": "string"
+            },
+            {
+              "id": "5f0faee9-9a3a-4cae-bcff-14403bda1eb2",
+              "name": "Email",
+              "value": "={{ $('Ventas Google Sheets Trigger').item.json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "c67bb55f-ee56-45e4-8ba5-e32daa401e2c",
+              "name": "No contacto",
+              "value": "={{ $('Ventas Google Sheets Trigger').item.json[\"No contacto\"] }}",
+              "type": "number"
+            },
+            {
+              "id": "316c3fbe-5a9f-4a61-be81-2c10f553c26d",
+              "name": "Plan",
+              "value": "={{ $('Ventas Google Sheets Trigger').item.json.Plan }}",
+              "type": "string"
+            },
+            {
+              "id": "29102162-dea6-4027-aad1-92aed0d759b7",
+              "name": "Account Manager",
+              "value": "={{ $('Ventas Google Sheets Trigger').item.json[\"Account Manager\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "fc75fa02-7214-49ca-b990-e7a1c5317024",
+              "name": "Fecha de pago",
+              "value": "={{\nDateTime\n  .fromFormat(\n    $('Ventas Google Sheets Trigger').item.json[\"Fecha de pago\"],\n    \"d/MM/yyyy\"\n  )\n  .toFormat(\"yyyy-MM-dd\")\n}}",
+              "type": "string"
+            },
+            {
+              "id": "ad9a2747-b9f0-4276-8ad0-11a23cac9875",
+              "name": "Sitio",
+              "value": "={{ $('Ventas Google Sheets Trigger').item.json.Sitio }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        80,
+        0
+      ],
+      "id": "cb0dee2e-c67f-4f48-9e08-0c8df2e5366c",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appmmqapfnOoqSpjg",
+          "mode": "list",
+          "cachedResultName": "Agencia Roca",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblbwaWO7SQmTOO81",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appmmqapfnOoqSpjg/tblbwaWO7SQmTOO81"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "No_cliente_ventas": "={{ $json[\"No cliente\"] }}",
+            "nombres": "={{ $json.Nombres }}",
+            "apellidos": "={{ $json.Apellidos }}",
+            "email": "={{ $json.Email }}",
+            "No_contacto": "={{ $json[\"No contacto\"] }}",
+            "plan": "={{ $json.Plan }}",
+            "account-manager": "={{ $json[\"Account Manager\"] }}",
+            "fecha_pago": "={{ $json[\"Fecha de pago\"] }}",
+            "sitio": "={{ $json.Sitio }}",
+            "estado": "En onboarding"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Id Cliente",
+              "displayName": "Id Cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No_cliente_ventas",
+              "displayName": "No_cliente_ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nombres",
+              "displayName": "nombres",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "apellidos",
+              "displayName": "apellidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No_contacto",
+              "displayName": "No_contacto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "plan",
+              "displayName": "plan",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "account-manager",
+              "displayName": "account-manager",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "fecha_pago",
+              "displayName": "fecha_pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "sitio",
+              "displayName": "sitio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Id_form",
+              "displayName": "Id_form",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "form_recibido",
+              "displayName": "form_recibido",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        304,
+        0
+      ],
+      "id": "88c1eab5-27ba-453f-bc05-61c4bf9eb9b4",
+      "name": "Guardar info cliente",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "axxntBIEq3vni3or",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C0B9XQL0PAR",
+          "mode": "list",
+          "cachedResultName": "accounting"
+        },
+        "text": "=🚀 Nuevo cliente confirmado para Onboarding\n\n👤 Cliente: {{ $json.Nombres }} {{ $json.Apellidos }}\n💼 Plan: {{ $json.Plan }}\n🧑‍💼 Account Manager: {{ $json['Account Manager'] }}\n📅 Fecha de pago: {{ $json['Fecha de pago'] }}\n🌐 Sitio: {{ $json.Sitio }}",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        -128,
+        0
+      ],
+      "id": "cd70e2d7-7fda-4a9f-acfa-3a38d84c3cc4",
+      "name": "Confirmacion de contabilidad",
+      "webhookId": "9a356dad-e7cf-4ab1-a74a-069ba3b51357",
+      "credentials": {
+        "slackApi": {
+          "id": "PeZlQ2PeTrl2frP4",
+          "name": "Slack account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Plan Starter Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Plan Growth Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Plan Premium Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ventas Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Confirmacion de contabilidad",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Guardar info cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar info cliente": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirmacion de contabilidad": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "3446e424-2e55-4a2f-9fe4-f984aabdd9c0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ca88ca86bc4a51c7fc34595854945c19b63cfab8fa478767692336200a39e016"
+  },
+  "id": "eZen5VVL70ikMCqM",
+  "tags": []
+}
